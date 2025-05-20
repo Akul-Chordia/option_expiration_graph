@@ -20,13 +20,14 @@ for i in positions:
 
 underlying = input("Enter underlying contracts (quantity | price) : ")
 underlying = underlying.split(" ")
-underlying = [int(a) for a in underlying]
+underlying = [float(a) for a in underlying]
 
-strikes.append(underlying[1])
+if (underlying[0] != 0):
+    strikes.append(underlying[1])
 
 strikes = sorted(strikes)
-strikes.append(strikes[-1]+5)
-strikes.append(strikes[0]-5)
+strikes.append(strikes[-1]+strikes[-1]*0.1)
+strikes.append(strikes[0]-strikes[0]*0.1)
 
 strikes = set(strikes)
 
