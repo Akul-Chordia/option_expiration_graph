@@ -18,16 +18,17 @@ while n>0:
 for i in positions:
     strikes.append(i.strike)
 
+underlying = input("Enter underlying contracts (quantity | price) : ")
+underlying = underlying.split(" ")
+underlying = [int(a) for a in underlying]
+
+strikes.append(underlying[1])
+
 strikes = sorted(strikes)
 strikes.append(strikes[-1]+5)
 strikes.append(strikes[0]-5)
 
 strikes = set(strikes)
-
-underlying = input("Enter underlying contracts (quantity | price) : ")
-underlying = underlying.split(" ")
-underlying = [int(a) for a in underlying]
-
 
 for strike in strikes:
     cost = 0.00
